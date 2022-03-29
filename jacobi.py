@@ -21,4 +21,4 @@ def JacobiIteration(n):
            "\nOur u4 value is",u4[-1],
            "\nOur u5 value is",u5[-1],
            "\nOur u6 value is",u6[-1])
-JacobiIteration(60)
+JacobiIteration(100)
