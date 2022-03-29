@@ -1,15 +1,24 @@
 import math
 import numpy as np
 def JacobiIteration(n):
-    x1 = np.zeros(n)
-    x2 = np.zeros(n)
-    x3 = np.zeros(n)
-    
+    u1 = np.zeros(n)
+    u2 = np.zeros(n)
+    u3 = np.zeros(n)
+    u4 = np.zeros(n)
+    u5 = np.zeros(n)
+    u6 = np.zeros(n)
+
     for i in range(0,n-1):
-        x1[i+1] = -x2[i] - 0.5*x3[i] + 3
-        x2[i+1] = 0.5*x1[i] - 0.5*x3[i] + 1.5
-        x3[i+1] = -0.5*x1[i] - x2[i] + 3.5
-    print ("Our x1 value is",x1[-1],
-           "\nOur x2 value is",x2[-1],
-           "\nOur x3 value is",x3[-1])
+        u1[i+1] = (u2[i] - 0.5*u6[i] + 2.5)/3
+        u2[i+1] = ( u1[i] + u3[i] - 0.5*u5[i] + 1.5)/3
+        u3[i+1] = (u2[i] + u4[i] + 1)/3
+        u4[i+1] = (u3[i] + 0.5*u5[i] + 1)/3
+        u5[i+1] = (u4[i] - 0.5*u2[i] +u6[i] + 1.5)/3
+        u6[i+1] = (u5[i] - 0.5*u1[i] + 2.5)/3
+    print ("Our u1 value is",u1[-1],
+           "\nOur u2 value is",u2[-1],
+           "\nOur u3 value is",u3[-1],
+           "\nOur u4 value is",u4[-1],
+           "\nOur u5 value is",u5[-1],
+           "\nOur u6 value is",u6[-1])
 JacobiIteration(60)
